@@ -1,0 +1,52 @@
+<h1>Image Gallery</h1>
+<p>
+    <a href="<?= $this->url('gallery', ['action' => 'add']); ?>"
+        class="btn btn-primary" role="button">Add image</a>
+</p>
+
+<?php if (count($files)==0): ?>
+
+<p>
+    <i>There are no files to display.</i>
+</p>
+
+<?php else: ?>
+<div class="row">
+
+    <?php foreach ($files as $file): ?>
+
+    <div class="col">
+
+        <img src="<?= $this->url(
+    'gallery',
+    ['action'=>'file'],
+    ['query'=>['name'=>$file['thumbnail']]]
+); ?>" class="img-thumbnail img fluid">
+        <h3>
+            <?= $file['title']; ?>
+        </h3>
+        <p>
+            <?= $file['description'] ?>
+        </p>
+        <p>
+            <a target="_blank" href="<?= $this->url(
+    'gallery',
+    ['action'=>'file'],
+    ['query'=>['name'=>$file['filename']]]
+); ?>" class="btn btn-secondary" role="button"><i class="bi bi-zoom-in"></i></a>
+            <a href="<?= $this->url(
+    'gallery',
+    ['action'=>'remove'],
+    ['query'=>['name'=>$file['filename']]]
+); ?>" class="btn btn-secondary" role="button"><i class="bi bi-trash"></i></a>
+        </p>
+
+
+    </div>
+
+    <?php endforeach; ?>
+</div>
+
+<?php endif; ?>
+
+<hr />

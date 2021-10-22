@@ -1,5 +1,28 @@
-# laminas-mvc-skeleton
+# DB-less gallery using laminas-mvc-skeleton
 
+This a learning repo and first project using laminas FW.
+
+Gallery is created without using DB - title and desc is stored in file name.
+
+## ```To improve```:
+- Add data validator for file upload for size/file types.
+- Big image viewer
+- Add some cool design
+
+## ```Pros```:
+- Simple image gallery
+
+## ```Cons```:
+- Actually we cannot garuantee order images in the gallery
+
+## Preview
+### Gallery
+![Gallery](preview/gallery.PNG?raw=true "Gallery")
+
+### Add Form
+![Add Form](preview/form.PNG?raw=true "Form")
+
+# MVC Laminas info: 
 ## Introduction
 
 This is a skeleton application using the Laminas MVC layer and module

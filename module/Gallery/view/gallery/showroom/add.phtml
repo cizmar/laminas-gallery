@@ -1,0 +1,50 @@
+<h1>Add image to the gallery</h1>
+
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('gallery', ['action' => 'add']));
+$form->setAttribute('enctype', 'multipart/form-data');
+
+$form->prepare();
+
+$title = $form->get('title');
+$title->setAttribute('class', 'form-control');
+$title->setAttribute('placeholder', 'Title');
+
+
+$desc = $form->get('description');
+$desc->setAttribute('class', 'form-control');
+$desc->setAttribute('placeholder', 'Description');
+
+$file = $form->get('file');
+$file->setAttribute('class', 'form-control');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+echo $this->form()->openTag($form);
+?>
+
+<fieldset>
+    <div class="form-group">
+        <?= $this->formLabel($title) ?>
+        <?= $this->formElement($title) ?>
+        <?= $this->formElementErrors()->render($title, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($file) ?>
+        <?= $this->formElement($file) ?>
+        <?= $this->formElementErrors()->render($file, ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($desc) ?>
+        <?= $this->formElement($desc) ?>
+        <?= $this->formElementErrors()->render($desc, ['class' => 'help-block']) ?>
+    </div>
+</fieldset>
+
+<?php
+    echo $this->formSubmit($submit);
+    echo $this->form()->closeTag();
